@@ -1,0 +1,45 @@
+.toDoItemContainer {
+  display: flex;
+  height: 40px;
+  background-color: rgb(255, 255, 255, 0.5);
+  border-radius: 5px;
+  margin: 15px 0px 15px 0px;
+  padding: 5px;
+}
+
+.toDoItemContainerLeft {
+  display: flex;
+  flex: 90%;
+  align-items: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 10px;
+  color: black;
+}
+.toDoItemContainerRight {
+  display: flex;
+  flex: 10%;
+}
+
+.toDoItemContainerIcon {
+  height: 20px;
+  width: 20px;
+  padding: 5px;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  background-color: #c7e5ff;
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: black;
+}
+
+.toDoItemContainerIcon:hover {
+  transition: all ease-in-out 0.2s;
+  background-color: #93caf4;
+  cursor: pointer;
+  color: #084377;
+}

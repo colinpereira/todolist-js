@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.toDoListContainerHeader {
+  text-align: center;
+  margin-bottom: 15px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 35px;
+  color: #084377;
+}
+
+.appContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(to bottom, #084377 0%, #2a9df4 100%);
+}
+
+.toDoListContainer {
+  width: 600px;
+  min-height: 200px;
+  border-radius: 30px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.addItemContainer {
+  display: flex;
+  width: 100%;
+}
+
+.addItemContainer input {
+  width: 95%;
+  padding: 10px;
+  border: #084377 2px solid;
+  border-radius: 5px 0px 0px 5px;
+  color: #084377;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.addItemContainer input::-webkit-input-placeholder {
+  color: #084377;
+}
+
+.addItemContainer button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5%;
+  border: none;
+  background-color: #084377;
+  border-radius: 0px 5px 5px 0px;
+  color: white;
+  font-size: 20px;
+  font-weight: 100;
+}
+
+.addItemContainer button:hover {
+  cursor: pointer;
+}
+
+.completedListContainer {
+  border-top: #084377 solid 3px;
+  margin-top: 30px;
+}
