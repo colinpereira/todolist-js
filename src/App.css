@@ -31,6 +31,27 @@
 .addItemContainer {
   display: flex;
   width: 100%;
+  flex-direction: column;
+}
+
+.addItem {
+  display: flex;
+  width: 100%;
+}
+
+.searchIcon {
+  width: 25px;
+  margin: 10px;
+}
+
+.searchBar {
+  width: 100%;
+  padding: 10px;
+  border: #084377 2px solid;
+  border-radius: 5px;
+  color: #084377;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 .addItemContainer input {

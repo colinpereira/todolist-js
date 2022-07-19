@@ -2,10 +2,13 @@ import React from "react";
 import "./App.css";
 import { useState } from "react";
 import ToDoItem from "./Components/ToDoItem";
+import searchIcon from "./Assets/search.png";
 
 const App = () => {
   const [taskList, setTaskList] = useState([]);
   const [toDoItem, setToDoItem] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [showSearch, setShowSearch] = useState(false);
   const [anyTaskCompleted, setAnyTaskCompleted] = useState(false);
 
   const addToList = () => {
@@ -15,6 +18,10 @@ const App = () => {
       { id: currId, taskName: toDoItem, completed: false },
     ]);
   };
+
+  const filterTasks = taskList.filter((task) =>
+    task.taskName.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const deleteTask = (id) => {
     let updatedTasks = taskList.filter((task) => task.id != id);
@@ -42,16 +49,36 @@ const App = () => {
       <div className="toDoListContainer">
         <h1 className="toDoListContainerHeader">Colin's To-Do List</h1>
         <div className="addItemContainer">
-          <input
-            onChange={(event) => {
-              setToDoItem(event.target.value);
+          <div className="addItem">
+            <input
+              onChange={(event) => {
+                setToDoItem(event.target.value);
+              }}
+              placeholder="Add an item here..."
+            />
+            <button onClick={addToList}>+</button>
+          </div>
+          <img
+            className="searchIcon"
+            src={searchIcon}
+            onClick={() => {
+              showSearch ? setShowSearch(false) : setShowSearch(true);
             }}
-            placeholder="Add an item here..."
           />
-          <button onClick={addToList}>+</button>
+          {showSearch && (
+            <div className="searchContainer">
+              <input
+                className="searchBar"
+                onChange={(event) => {
+                  setSearchTerm(event.target.value);
+                }}
+                placeholder="Search for a task..."
+              />
+            </div>
+          )}
         </div>
         <div className="uncompletedListContainer">
-          {taskList.map((item, key) => {
+          {filterTasks.map((item, key) => {
             return (
               !item.completed && (
                 <ToDoItem
@@ -67,7 +94,7 @@ const App = () => {
 
         <div className="completedListContainer">
           <h1 className="toDoListContainerHeader">Completed Tasks</h1>
-          {taskList.map((item, key) => {
+          {filterTasks.map((item, key) => {
             return (
               item.completed && (
                 <ToDoItem
